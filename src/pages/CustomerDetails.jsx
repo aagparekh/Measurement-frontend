@@ -25,21 +25,19 @@ const CustomerDetails = () => {
   const [customer, setCustomer] = useState(null);
   const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState(customer);
-  //   console.log(id);
+
   const fetchCustomer = async () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await fetch(`/api/customer/${id}`);
+      const res = await fetch(`${API_URL}/api/customer/${id}`);
       const data = await res.json();
       setCustomer(data);
       setFormData(data);
-      //   console.log(data);
     } catch (err) {
       console.error("Error fetching customer:", err);
     }
   };
   useEffect(() => {
-    console.log("first");
-
     fetchCustomer();
   }, [id]);
 
@@ -92,7 +90,7 @@ const CustomerDetails = () => {
       description: "Please wait...",
     });
     try {
-      const res = await fetch(`/api/customer/${id}`, {
+      const res = await fetch(`${API_URL}/api/customer/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -147,7 +145,7 @@ ${measurements}`;
       description: "Please wait...",
     });
     try {
-      const res = await fetch(`/api/customer/${id}`, {
+      const res = await fetch(`${API_URL}/api/customer/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

@@ -20,6 +20,7 @@ const SearchCustomer = () => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
 
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     setLoading(true);
@@ -31,10 +32,11 @@ const SearchCustomer = () => {
 
     const timeout = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/customer/search?name=${searchMsg}`);
+        const res = await fetch(
+          `${API_URL}/api/customer/search?name=${searchMsg}`
+        );
         const data = await res.json();
         setResults(data);
-        console.log("Search results:", data);
         setLoading(false);
       } catch (error) {
         console.error("Search error:", error);

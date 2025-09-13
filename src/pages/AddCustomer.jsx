@@ -16,6 +16,7 @@ const AddCustomer = () => {
     customer_name: "",
     customer_measurement: {},
   });
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,14 +57,14 @@ const AddCustomer = () => {
       customer_measurement: filteredMeasurements,
     };
 
-    console.log("Payload to send:", payload);
+    // console.log("Payload to send:", payload);
     const toastId = toaster.create({
       title: "Adding customer...",
       type: "loading",
     });
 
     try {
-      const res = await fetch("/api/customer", {
+      const res = await fetch(`${API_URL}/api/customer`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
