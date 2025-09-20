@@ -126,37 +126,237 @@ const AddCustomer = () => {
             <Fieldset.HelperText>
               Please provide your Customer Measurement below.
             </Fieldset.HelperText>
+            <h3>Chest Area</h3>
+            <Field.Root>
+              <Field.Label>Chest</Field.Label>
+              <Input
+                name="chest"
+                type="number"
+                value={formData.customer_measurement.chest || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
 
-            {[
-              "chest",
-              "upper_chest",
-              "under_chest",
-              "stomach",
-              "dart_point",
-              "sleeves_len",
-              "upper_sleeves",
-              "lower_sleeves",
-              "neck_deep",
-              "shoulder",
-              "yoke_len",
-              "top_len",
-              "plazo_len",
-              "waist",
-              "hip",
-              "thigh",
-              "knee",
-              "armhole",
-            ].map((field) => (
-              <Field.Root key={field}>
-                <Field.Label>{field.replace(/_/g, " ")}</Field.Label>
+            <Field.Root>
+              <Field.Label>Upper Chest</Field.Label>
+              <Input
+                name="upper_chest"
+                type="number"
+                value={formData.customer_measurement.upper_chest || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Under Chest</Field.Label>
+              <Input
+                name="under_chest"
+                type="number"
+                value={formData.customer_measurement.under_chest || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Stomach</Field.Label>
+              <Input
+                name="stomach"
+                type="number"
+                value={formData.customer_measurement.stomach || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Dart Point</Field.Label>
+              <Input
+                name="dart_point"
+                type="number"
+                value={formData.customer_measurement.dart_point || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            {/* Sleeves Section */}
+            <h3>Sleeves</h3>
+            <Box display={"flex"} gap={2}>
+              <Field.Root>
+                <Field.Label>Sleeves Length</Field.Label>
                 <Input
-                  name={field}
+                  name="sleeves_len"
                   type="number"
-                  value={formData.customer_measurement[field] || ""}
+                  value={formData.customer_measurement.sleeves_len || ""}
                   onChange={handleChange}
                 />
               </Field.Root>
-            ))}
+
+              <Field.Root>
+                <Field.Label>Upper Sleeves</Field.Label>
+                <Input
+                  name="upper_sleeves"
+                  type="number"
+                  value={formData.customer_measurement.upper_sleeves || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+
+              <Field.Root>
+                <Field.Label>Lower Sleeves</Field.Label>
+                <Input
+                  name="lower_sleeves"
+                  type="number"
+                  value={formData.customer_measurement.lower_sleeves || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+            </Box>
+
+            {/* Other Section */}
+            <Field.Root>
+              <Field.Label>Neck Deep</Field.Label>
+              <Input
+                name="neck_deep"
+                type="number"
+                value={formData.customer_measurement.neck_deep || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Back Blouse Deep</Field.Label>
+              <Input
+                name="back_blouse_deep"
+                type="number"
+                value={formData.customer_measurement.back_blouse_deep || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Shoulder</Field.Label>
+              <Input
+                name="shoulder"
+                type="number"
+                value={formData.customer_measurement.shoulder || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Yoke Length</Field.Label>
+              <Input
+                name="yoke_len"
+                type="number"
+                value={formData.customer_measurement.yoke_len || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <h3>Upper Body Length</h3>
+            <Box>
+              <Field.Root marginBottom={3}>
+                <Field.Label>Top Length</Field.Label>
+                <Input
+                  name="top_len"
+                  type="number"
+                  value={formData.customer_measurement.top_len || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+
+              <Field.Root>
+                <Field.Label>Blouse Length</Field.Label>
+                <Input
+                  name="blouse_len"
+                  type="number"
+                  value={formData.customer_measurement.blouse_len || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+            </Box>
+
+            <h3>Lower Body Length</h3>
+            <Box>
+              <Field.Root marginBottom={3}>
+                <Field.Label>Plazo Length</Field.Label>
+                <Input
+                  name="plazo_len"
+                  type="number"
+                  value={formData.customer_measurement.plazo_len || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+
+              <Field.Root marginBottom={3}>
+                <Field.Label> Bellbottom Length</Field.Label>
+                <Input
+                  name="bellbottom_len"
+                  type="number"
+                  value={formData.customer_measurement.bellbottom_len || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+
+              <Field.Root>
+                <Field.Label>Pant Length</Field.Label>
+                <Input
+                  name="pant_len"
+                  type="number"
+                  value={formData.customer_measurement.pant_len || ""}
+                  onChange={handleChange}
+                />
+              </Field.Root>
+            </Box>
+
+            <Field.Root>
+              <Field.Label>Waist</Field.Label>
+              <Input
+                name="waist"
+                type="number"
+                value={formData.customer_measurement.waist || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Hip</Field.Label>
+              <Input
+                name="hip"
+                type="number"
+                value={formData.customer_measurement.hip || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Thigh</Field.Label>
+              <Input
+                name="thigh"
+                type="number"
+                value={formData.customer_measurement.thigh || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Knee</Field.Label>
+              <Input
+                name="knee"
+                type="number"
+                value={formData.customer_measurement.knee || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
+
+            <Field.Root>
+              <Field.Label>Armhole</Field.Label>
+              <Input
+                name="armhole"
+                type="number"
+                value={formData.customer_measurement.armhole || ""}
+                onChange={handleChange}
+              />
+            </Field.Root>
           </Fieldset.Content>
 
           <Button type="submit" alignSelf="flex-start">

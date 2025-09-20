@@ -25,9 +25,9 @@ const CustomerDetails = () => {
   const [customer, setCustomer] = useState(null);
   const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState(customer);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchCustomer = async () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     try {
       const res = await fetch(`${API_URL}/api/customer/${id}`);
       const data = await res.json();
@@ -82,7 +82,6 @@ const CustomerDetails = () => {
   // Handle Update Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // console.log("first");
     toaster.loading({
       id,
@@ -239,9 +238,7 @@ ${measurements}`;
               onChange={handleChange}
             />
           </Field.Root>
-          <Field.Root>
-            <Field.Label>Customer Measurement</Field.Label>
-          </Field.Root>
+          <h2>Customer Measurement</h2>
           <Field.Root>
             <Field.Label>Chest</Field.Label>
             <Input
@@ -282,30 +279,35 @@ ${measurements}`;
               onChange={handleChange}
             />
           </Field.Root>
-          <Field.Root>
-            <Field.Label>sleeves length</Field.Label>
-            <Input
-              name="sleeves_len"
-              value={formData.customer_measurement.sleeves_len}
-              onChange={handleChange}
-            />
-          </Field.Root>
-          <Field.Root>
-            <Field.Label>Upper Sleeves</Field.Label>
-            <Input
-              name="upper_sleeves"
-              value={formData.customer_measurement.upper_sleeves}
-              onChange={handleChange}
-            />
-          </Field.Root>
-          <Field.Root>
-            <Field.Label>Lower Sleeves</Field.Label>
-            <Input
-              name="lower_sleeves"
-              value={formData.customer_measurement.lower_sleeves}
-              onChange={handleChange}
-            />
-          </Field.Root>
+
+          <h2>Sleeves Measurement</h2>
+          <Box display={"flex"} gap={2}>
+            <Field.Root>
+              <Field.Label>sleeves length</Field.Label>
+              <Input
+                name="sleeves_len"
+                value={formData.customer_measurement.sleeves_len}
+                onChange={handleChange}
+              />
+            </Field.Root>
+            <Field.Root>
+              <Field.Label>Upper Sleeves</Field.Label>
+              <Input
+                name="upper_sleeves"
+                value={formData.customer_measurement.upper_sleeves}
+                onChange={handleChange}
+              />
+            </Field.Root>
+            <Field.Root>
+              <Field.Label>Lower Sleeves</Field.Label>
+              <Input
+                name="lower_sleeves"
+                value={formData.customer_measurement.lower_sleeves}
+                onChange={handleChange}
+              />
+            </Field.Root>
+          </Box>
+
           <Field.Root>
             <Field.Label>Neck Deep</Field.Label>
             <Input
@@ -314,6 +316,16 @@ ${measurements}`;
               onChange={handleChange}
             />
           </Field.Root>
+
+          <Field.Root>
+            <Field.Label>Blouse Back Deep</Field.Label>
+            <Input
+              name="blouse_back_deep"
+              value={formData.customer_measurement.blouse_back_deep}
+              onChange={handleChange}
+            />
+          </Field.Root>
+
           <Field.Root>
             <Field.Label>Shoulder</Field.Label>
             <Input
@@ -338,6 +350,16 @@ ${measurements}`;
               onChange={handleChange}
             />
           </Field.Root>
+
+          <Field.Root>
+            <Field.Label>Blouse length</Field.Label>
+            <Input
+              name="blouse_len"
+              value={formData.customer_measurement.blouse_len}
+              onChange={handleChange}
+            />
+          </Field.Root>
+
           <Field.Root>
             <Field.Label>plazo len</Field.Label>
             <Input
@@ -346,6 +368,25 @@ ${measurements}`;
               onChange={handleChange}
             />
           </Field.Root>
+
+          <Field.Root>
+            <Field.Label>Bellbottom len</Field.Label>
+            <Input
+              name="bellbottom_len"
+              value={formData.customer_measurement.bellbottom_len}
+              onChange={handleChange}
+            />
+          </Field.Root>
+
+          <Field.Root>
+            <Field.Label>Pant len</Field.Label>
+            <Input
+              name="pant_len"
+              value={formData.customer_measurement.pant_len}
+              onChange={handleChange}
+            />
+          </Field.Root>
+
           <Field.Root>
             <Field.Label>waist</Field.Label>
             <Input
